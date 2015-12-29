@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+echo '_______________ INSTALL GLOBAL DEPENDENCIES ____________'
+
+if ! command -v watch >/dev/null 2>&1
+    then
+        npm install -g watch
+    fi
+
+if ! command -v postcss >/dev/null 2>&1
+    then
+        npm install -g postcss-cli
+    fi
+
+if ! command -v browserify >/dev/null 2>&1
+    then
+        npm install -g browserify
+    fi

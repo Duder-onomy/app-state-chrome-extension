@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+var nodeSass = require('node-sass'),
+    fs = require('fs'),
+    child_process = require('child_process'),
+    sassPath = 'app/styles/main.scss',
+    cssPath = 'build/main.css',
+    result;
+
+console.log(`_______________ RUNNING SCSS ____________`);
+
+result = nodeSass.renderSync({
+    file: sassPath,
+    includePaths: [sassPath],
+    outFile: cssPath,
+    outputStyle: 'compressed',
+    sourceMap: false
+});
+
+fs.writeFileSync(cssPath, result.css);

@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+var child_process = require('child_process');
+
+console.log('_______________ RUNNING BUILD ____________');
+
+console.log('_______________ REMOVING BUILD DIR ____________');
+child_process.execSync('rm -r build', { stdio : 'inherit' } );
+console.log('_______________ CREATING BUILD DIR ____________');
+child_process.execSync('mkdir build', { stdio : 'inherit' } );
+
+child_process.execSync('bin/scss', { stdio : 'inherit' });
+child_process.execSync('bin/jade', { stdio : 'inherit' });
+child_process.execSync('bin/browserify', { stdio : 'inherit' });
+
+console.log('_______________ COPY MANIFEST JSON TO BUILD DIR ____________');
+child_process.execSync('cp app/manifest.json build/manifest.json', { stdio : 'inherit' });
+
+console.log('_______________ COPY ASSETS DIR TO BUILD DIR ____________');
+child_process.execSync('cp -r app/assets build/assets', { stdio : 'inherit' });
+
+console.log('_______________ COPY FONT AWESOME FONTS TO BUILD DIR ____________');
+child_process.execSync('cp -r node_modules/font-awesome/fonts build/fonts', { stdio : 'inherit' });

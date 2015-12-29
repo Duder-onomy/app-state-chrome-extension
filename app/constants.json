@@ -1,0 +1,29 @@
+{
+    "defaults": {
+        "desire": {
+            "image": "https://s3.amazonaws.com/desirelist/56532e844eafd66dcd2081eb/default-desire-image@1x.gif"
+        }
+    },
+    "client": {
+        "apiKey": "f3b2246e-e8be-43fd-8e5d-5358ddd887b5",
+        "endpoints": {
+            "getUserDetails": "http://desirelist.com/api/v1/me",
+            "getUsersLists": "http://desirelist.com/api/v1/me/lists",
+            "listDetail": "http://desirelist.com/api/v1/me/lists/:listId",
+            "attachImageToDesire": "http://desirelist.com/api/v1/me/lists/:listId/desires/:desireId/attachment",
+            "validateCode": "http://desirelist.com/api/v1/members/invitation",
+            "getSuggestedLists": "http://desirelist.com/api/v1/public/lists",
+            "auth": "http://desirelist.com/api/v1/auth",
+            "getMyLists": "http://desirelist.com/api/v1/me/lists",
+            "updateListName": "http://desirelist.com/api/v1/me/lists/:listId",
+            "parseDesireUrl": "http://desirelist.com/api/v1/me/desires/parse",
+            "deleteDesireFromList": "http://desirelist.com/api/v1/me/lists/:listid/desires/:desireid",
+            "updateDesireDetails": "http://desirelist.com/api/v1/me/lists/:listid/desires/:desireid",
+            "addDesireToList": "http://desirelist.com/api/v1/me/lists/:listid/desires"
+        },
+        "lang": {
+            "success": "Your desire was added.",
+            "viewDesire": "View Desire"
+        }
+    }
+}

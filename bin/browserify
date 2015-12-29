@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+var child_process = require('child_process'),
+    path = require('path'),
+    pathToIndexJs = path.join('app', 'index.js'),
+    pathToBundleJs = path.join('build', 'bundle.js');
+
+console.log('_______________ RUNNING BROWSERIFY ____________');
+
+child_process.execSync(`browserify ${pathToIndexJs} -o ${pathToBundleJs}`, { stdio : 'inherit' });

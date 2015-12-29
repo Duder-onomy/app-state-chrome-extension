@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+(watch bin/scss app/styles) &
+(watch bin/jade app) &
+(watch bin/browserify app)
