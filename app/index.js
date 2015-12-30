@@ -20,10 +20,6 @@ angular
         function initialize() {
             // $scope.editor = new jsonEditor(document.querySelector('.editor'));
 
-            setTimeout(function() {
-                document.body.innerText = window.appState();
-            }, 1000);
-
 
             // $window.chrome.tabs.query({ active: true, currentWindow : true }, function(tabs) {
             //     console.log('------');
