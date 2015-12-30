@@ -7,14 +7,52 @@ var angular = require('angular'),
 
 angular
     .module('app-sate-extension', ['ngMaterial'])
-    .controller('chromeExtensionController', ['$scope', function($scope) {
+    .controller('chrome-extension-controller', ['$scope', '$window', function($scope, $window) {
         // Controller Methods
         $scope.initialize = initialize;
 
         // Controller Properties
+        $scope.editor = null;
+        $scope.activeTab = null;
+        $scope.initialized = false;
+        $scope.appStateInstance = null;
+        $scope.interval = null;
 
         function initialize() {
+            // $scope.editor = new jsonEditor(document.querySelector('.editor'));
 
+            setTimeout(function() {
+                document.body.innerText = window.appState();
+            }, 1000);
+
+
+            // $window.chrome.tabs.query({ active: true, currentWindow : true }, function(tabs) {
+            //     console.log('------');
+            //     console.log(tabs[0]);
+            //     // $scope.appStateInstance = tabs[0];
+            //     chrome.windows.get(tabs[0].windowId, function(thisWindow) {
+            //         console.log('++++++++');
+            //         debugger;
+            //         console.log(thisWindow);
+            //         // $scope.thisWindow = thisWindow;
+            //     });
+            // });
+
+            // $scope.interval = setInterval(function() {
+            //     console.log('yeah?');
+            //     console.log($scope.thisWindow.appState);
+            //     if($scope.thisWindow.appState && !$scope.initialized) {
+            //         $scope.initialized = true;
+            //
+            //         clearInterval($scope.interval);
+            //
+            //         $scope.thisWindow.appState.subscribe('', function() {
+            //             console.log('did this get called?');
+            //             $scope.editor.set($scope.thisWindow.appState());
+            //             console.log('RAN');
+            //         });
+            //     }
+            // }, 1);
         }
     }]);
 
