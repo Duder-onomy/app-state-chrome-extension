@@ -2,8 +2,8 @@
 
 var child_process = require('child_process'),
     path = require('path'),
-    pathToIndexJs = path.join('app', 'index.js'),
-    pathToBundleJs = path.join('build', 'bundle.js');
+    pathToIndexJs = path.join('app', 'panel.js'),
+    pathToBundleJs = path.join('build', 'panel.js');
 
 console.log('_______________ RUNNING BROWSERIFY ____________');
 

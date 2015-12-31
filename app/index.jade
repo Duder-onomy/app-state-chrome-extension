@@ -1,6 +1,8 @@
 doctype html
 html(lang="en")
     head
-        script(type='text/javascript', src='bundle.js')
+        link(rel='stylesheet', type='text/css', href='main.css')
+        script(type='text/javascript', src='panel.js')
     body(ng-app='app-sate-extension')
         .extension-container(ng-controller='chrome-extension-controller', ng-init='initialize()')
+            .editor

@@ -4,6 +4,8 @@ var angular = require('angular'),
     material = require('angular-material'), // jshint ignore:line
     jsonEditor = require('jsoneditor'); // jshint ignore:line
 
+window.alert('YEAH BRAH');
+
 angular
     .module('app-sate-extension', ['ngMaterial'])
     .controller('chrome-extension-controller', ['$scope', '$window', function($scope, $window) {
@@ -18,8 +20,17 @@ angular
         $scope.interval = null;
 
         function initialize() {
-            // $scope.editor = new jsonEditor(document.querySelector('.editor'));
+            $scope.editor = new jsonEditor(document.querySelector('.editor'));
 
+            $scope.editor.set({ duder : true });
+
+            chrome.devtools.inspectedWindow.eval(
+                "window.appState();",
+                function(result, isException) {
+                    $scope.editor.set(result);
+                    alert(isException);
+                }
+            );
 
             // $window.chrome.tabs.query({ active: true, currentWindow : true }, function(tabs) {
             //     console.log('------');
