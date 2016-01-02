@@ -2,8 +2,11 @@ WIP
 
 - [x] Live refresh appState
 - [ ] Ability to edit appState and have that pushed into browser
+- [ ] Ability to freeze appState updates
+- [ ] Work nicely with page refreshes
 
-This is a helper Chrome Extension for [app-state](https://www.npmjs.com/package/app-state).
+This is a helper Chrome Extension for [app-state](https://www.npmjs.com/package/app-state). You need to install app-state
+v0.2.0+ for it. Currently 0.2.0 is in beta (0.2.0-beta.X) on npm.
 
 You can currently inspect your appState and watch it update in real time:
 
