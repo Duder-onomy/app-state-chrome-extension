@@ -37,7 +37,7 @@ editor.set({
     appState : 'is waiting'
 });
 
-setAppState();
+getAppState();
 messaging.createChannel(setAppState);
 messaging.sendObjectToInspectedPage({ action: 'script', content: 'inserted-script.js' });
 
@@ -47,8 +47,23 @@ function onChange() {
     messaging.sendObjectToInspectedPage(editor.get());
 }
 
+// Pulling appState
+function getAppState() {
+    chrome.devtools.inspectedWindow.eval('window.appState();', function(result, isException) {
+        if (isException) {
+            result = {
+                appState : 'retrieval error',
+                error : result
+            };
+        }
+        editor.set(result);
+    });
+}
+
+// appState pushed
 function setAppState(appState) {
     editor.set(appState);
+    editor.expandAll();
 }
 },{"./messaging":1,"jsoneditor":7}],3:[function(require,module,exports){
 ace.define("ace/ext/searchbox",["require","exports","module","ace/lib/dom","ace/lib/lang","ace/lib/event","ace/keyboard/hash_handler","ace/lib/keys"], function(acequire, exports, module) {

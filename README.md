@@ -1,7 +1,4 @@
 WIP
 
-To get appState to show up, do this in the console:
-
-```javascript
-window.dispatchEvent(new CustomEvent('change-app-state', {detail:appState()}))
-```
+[x] Live refresh appState
+[ ] Ability to edit appState and have that pushed into browser
