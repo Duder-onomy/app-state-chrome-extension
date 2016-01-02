@@ -2,11 +2,10 @@
 
 var child_process = require('child_process');
 
-console.log('_______________ START ____________')
+console.log('_______________ START ____________');
 
 child_process.execSync('bin/install-deps', { stdio : 'inherit' });
 
 child_process.execSync('bin/build', { stdio : 'inherit' });
 
-console.log('_______________ RUNNING WATCH ____________')
-
+console.log('_______________ RUNNING WATCH ____________');
