@@ -10,4 +10,3 @@ child_process.execSync('bin/build', { stdio : 'inherit' });
 
 console.log('_______________ RUNNING WATCH ____________')
 
-child_process.spawn('bin/watch', { stdio : 'inherit' });

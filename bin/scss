@@ -2,7 +2,6 @@
 
 var nodeSass = require('node-sass'),
     fs = require('fs'),
-    child_process = require('child_process'),
     sassPath = 'app/styles/main.scss',
     cssPath = 'build/main.css',
     result;

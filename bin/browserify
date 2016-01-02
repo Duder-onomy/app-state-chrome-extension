@@ -1,8 +1,0 @@
-#!/usr/bin/env node
-
-var child_process = require('child_process'),
-    path = require('path');
-
-console.log('_______________ RUNNING BROWSERIFY ____________');
-
-child_process.execSync(`browserify ${path.join('app', 'panel.js')} -o ${path.join('build', 'panel.js')}`, { stdio : 'inherit' });

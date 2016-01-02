@@ -7,10 +7,10 @@ var jade = require('jade'),
 
 console.log('_______________ RUNNING JADE ____________');
 
-var index = jade.compileFile(path.join('app', 'index.jade'), {
+var index = jade.compileFile(path.join('app', 'panel.jade'), {
     // filename:string Used in exceptions, and required for relative includes and extends
     // doctype:string If the doctype is not specified as part of the template, you can specify it here. It is sometimes useful to get self-closing tags and remove mirroring of boolean attributes.
-    // pretty:boolean | string Adds whitespace to the resulting html to make it easier for a human to read using '  ' as indentation. If a string is specified, that will be used as indentation instead (e.g. '\t').
+    pretty: true // boolean | string Adds whitespace to the resulting html to make it easier for a human to read using '  ' as indentation. If a string is specified, that will be used as indentation instead (e.g. '\t').
     // self:boolean Use a self namespace to hold the locals (false by default)
     // debug:boolean If set to true, the tokens and function body is logged to stdout
     // compileDebug:boolean If set to true, the function source will be included in the compiled template for better error messages (sometimes useful in development). It is enabled by default unless used with express in production mode.
@@ -20,10 +20,10 @@ var index = jade.compileFile(path.join('app', 'index.jade'), {
     // globals:Array.<string>Add a list of global names to make accessible in templates
 });
 
-var devtoolsBackground = jade.compileFile(path.join('app', 'devtoolsBackground.jade'), {
+var devtools = jade.compileFile(path.join('app', 'devtools.jade'), {
     // filename:string Used in exceptions, and required for relative includes and extends
     // doctype:string If the doctype is not specified as part of the template, you can specify it here. It is sometimes useful to get self-closing tags and remove mirroring of boolean attributes.
-    // pretty:boolean | string Adds whitespace to the resulting html to make it easier for a human to read using '  ' as indentation. If a string is specified, that will be used as indentation instead (e.g. '\t').
+    pretty: true //boolean | string Adds whitespace to the resulting html to make it easier for a human to read using '  ' as indentation. If a string is specified, that will be used as indentation instead (e.g. '\t').
     // self:boolean Use a self namespace to hold the locals (false by default)
     // debug:boolean If set to true, the tokens and function body is logged to stdout
     // compileDebug:boolean If set to true, the function source will be included in the compiled template for better error messages (sometimes useful in development). It is enabled by default unless used with express in production mode.
@@ -33,5 +33,5 @@ var devtoolsBackground = jade.compileFile(path.join('app', 'devtoolsBackground.j
     // globals:Array.<string>Add a list of global names to make accessible in templates
 });
 
-fs.writeFileSync(path.join('build', 'index.html'), index(locals));
-fs.writeFileSync(path.join('build', 'devtoolsBackground.html'), devtoolsBackground(locals));
+fs.writeFileSync(path.join('build', 'panel.html'), index(locals));
+fs.writeFileSync(path.join('build', 'devtools.html'), devtools(locals));

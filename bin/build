@@ -1,23 +1,35 @@
 #!/usr/bin/env node
+'use strict';
 
-var child_process = require('child_process');
+var child_process = require('child_process'),
+    chalk = require('chalk');
 
-console.log('_______________ RUNNING BUILD _____________________________________');
+console.log(chalk.blue('__________ RUNNING BUILD __________'));
 
-console.log('_______________ REMOVING BUILD DIR ________________________________');
-child_process.execSync('rm -r build', { stdio : 'inherit' } );
-console.log('_______________ CREATING BUILD DIR ________________________________');
-child_process.execSync('mkdir build', { stdio : 'inherit' } );
+run('rm -r build', 'REMOVING BUILD DIR');
+run('mkdir build', 'CREATING BUILD DIR');
 
-child_process.execSync('bin/scss', { stdio : 'inherit' });
-child_process.execSync('bin/jade', { stdio : 'inherit' });
-child_process.execSync('bin/browserify', { stdio : 'inherit' });
+run('bin/scss');
 
-console.log('_______________ COPY MANIFEST JSON TO BUILD DIR ___________________');
-child_process.execSync('cp app/manifest.json build/manifest.json', { stdio : 'inherit' });
+run('cp -r app/img build/img'                                                   , 'COPY IMG DIR TO BUILD DIR');
+run('cp app/manifest.json build/manifest.json'                                  , 'COPY MANIFEST JSON TO BUILD DIR');
+run('rsync --exclude="app/messaging.js" --exclude="app/panel.js" app/*.js build', 'COPY JS TO BUILD DIR');
+run('rsync app/*.html build'                                                    , 'COPY HTML TO BUILD DIR');
 
-console.log('_______________ COPY DEV-TOOLS-BACKGROUND TO BUILD DIR ____________');
-child_process.execSync('cp app/devtoolsBackground.js build/devtoolsBackground.js', { stdio : 'inherit' });
+// Should consoloditate these watch / use the js api
+runAsync('watch', ['bin/scss', 'app/styles']                                    , 'SASS WATCH');
+runAsync('watch', ['rsync --exclude="app/messaging.js" --exclude="app/panel.js" app/*.js build', 'app'], 'WATCHING INSERTED-SCRIPT');
+runAsync('watch', ['rsync app/*.html build', 'app'], 'WATCHING BACKGROUND');
 
-console.log('_______________ COPY IMG DIR TO BUILD DIR _________________________');
-child_process.execSync('cp -r app/img build/img', { stdio : 'inherit' });
+// Watchify is faster than rerunning browserify because there is extensive caching
+run('bin/watchify'                                      , 'WATCHIFY');
+
+function run(command, msg) {
+    msg && console.log(chalk.green(`__________ ${msg} __________`));
+    child_process.execSync(command, { stdio : 'inherit' });
+}
+
+function runAsync(command, argsArray, msg) {
+    msg && console.log(chalk.blue(`__________ ${msg} __________`));
+    child_process.spawn(command, argsArray, {stdio:'inherit'});
+}

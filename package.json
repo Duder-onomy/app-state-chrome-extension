@@ -13,5 +13,8 @@
     "jade": "^1.11.0",
     "jsoneditor": "^4.2.1",
     "node-sass": "^3.4.2"
+  },
+  "devDependencies": {
+    "chalk": "^1.1.1"
   }
 }

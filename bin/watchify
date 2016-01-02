@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo '_______________ RUNNING WATCHIFY ____________'
+
+watchify app/panel.js -v -o build/panel.js
