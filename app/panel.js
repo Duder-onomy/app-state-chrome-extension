@@ -3,7 +3,9 @@
 
 var jsonEditor = require('jsoneditor'),
     editor = new jsonEditor(document.querySelector('.editor'), {
-        onChange : onChange
+        onChange : onChange,
+        name : 'AppState',
+        modes : ['tree', 'view', 'form', 'code', 'text']
     }),
     messaging = require('./messaging');
 
