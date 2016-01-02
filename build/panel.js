@@ -28,27 +28,27 @@ function createChannel(listener) {
 
 
 var jsonEditor = require('jsoneditor'),
-    editor = new jsonEditor(document.querySelector('.editor')),
+    editor = new jsonEditor(document.querySelector('.editor'), {
+        onChange : onChange
+    }),
     messaging = require('./messaging');
 
 editor.set({
     appState : 'is waiting'
 });
 
-retrieveAppState();
-messaging.createChannel(retrieveAppState);
+setAppState();
+messaging.createChannel(setAppState);
 messaging.sendObjectToInspectedPage({ action: 'script', content: 'inserted-script.js' });
 
-function retrieveAppState() {
-    chrome.devtools.inspectedWindow.eval('window.appState();', function(result, isException) {
-        if (isException) {
-            result = {
-                appState : 'retrieval error',
-                error : result
-            };
-        }
-        editor.set(result);
-    });
+
+function onChange() {
+
+    messaging.sendObjectToInspectedPage(editor.get());
+}
+
+function setAppState(appState) {
+    editor.set(appState);
 }
 },{"./messaging":1,"jsoneditor":7}],3:[function(require,module,exports){
 ace.define("ace/ext/searchbox",["require","exports","module","ace/lib/dom","ace/lib/lang","ace/lib/event","ace/keyboard/hash_handler","ace/lib/keys"], function(acequire, exports, module) {
