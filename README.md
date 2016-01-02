@@ -1,9 +1,9 @@
 WIP
 
-- [x] Live refresh appState
-- [ ] Ability to edit appState and have that pushed into browser
-- [ ] Ability to freeze appState updates
-- [ ] Work nicely with page refreshes
+- [x] [Live refresh appState](https://github.com/Duder-onomy/app-state-chrome-extension/issues/2)
+- [ ] [Ability to edit appState and have that pushed into browser](https://github.com/Duder-onomy/app-state-chrome-extension/issues/1)
+- [ ] [Ability to freeze appState updates](https://github.com/Duder-onomy/app-state-chrome-extension/issues/3)
+- [ ] [Work nicely with page refreshes](https://github.com/Duder-onomy/app-state-chrome-extension/issues/4)
 
 This is a helper Chrome Extension for [app-state](https://www.npmjs.com/package/app-state). You need to install app-state
 v0.2.0+ for it. Currently 0.2.0 is in beta (0.2.0-beta.X) on npm.
