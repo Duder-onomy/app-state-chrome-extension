@@ -5,6 +5,10 @@ WIP
 
 This is a helper Chrome Extension for [app-state](https://www.npmjs.com/package/app-state).
 
+You can currently inspect your appState and watch it update in real time:
+
+![appstate-live-update](https://cloud.githubusercontent.com/assets/1643937/12075681/b1d5caba-b13c-11e5-8c8e-54eb239bcb93.gif)
+
 To install it:
 
 1. clone the repo
