@@ -9,9 +9,15 @@ WIP
 This is a helper Chrome Extension for [app-state](https://www.npmjs.com/package/app-state). You need to install app-state
 v0.2.0-beta.2 or greater for it. Currently 0.2.0 is in beta (0.2.0-beta.X) on npm.
 
-You can currently inspect your appState and watch it update in real time:
+You can currently inspect and edit your appState and watch it update in real time 
+
+note the 'timestamp' field:
 
 ![appstate-live-update](https://cloud.githubusercontent.com/assets/1643937/12075681/b1d5caba-b13c-11e5-8c8e-54eb239bcb93.gif)
+
+editing:
+
+![two-way](https://cloud.githubusercontent.com/assets/1643937/12080233/414591c2-b209-11e5-8481-093ec2fa83c2.gif)
 
 To install it:
 
