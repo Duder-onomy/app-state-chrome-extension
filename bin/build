@@ -11,7 +11,7 @@ run('mkdir build', 'CREATING BUILD DIR');
 
 run('bin/scss');
 
-run('cp -r app/img build/img'                                                   , 'COPY IMG DIR TO BUILD DIR');
+run('cp -r node_modules/jsoneditor/dist/img build/img'                          , 'COPY IMG DIR TO BUILD DIR');
 run('cp app/manifest.json build/manifest.json'                                  , 'COPY MANIFEST JSON TO BUILD DIR');
 run('rsync --exclude="app/messaging.js" --exclude="app/panel.js" app/*.js build', 'COPY JS TO BUILD DIR');
 run('rsync app/*.html build'                                                    , 'COPY HTML TO BUILD DIR');
