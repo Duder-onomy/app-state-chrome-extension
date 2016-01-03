@@ -7,7 +7,7 @@ WIP
 - [ ] [Fix bug where opening and closing dev panel adds more and more listeners without removing them](https://github.com/Duder-onomy/app-state-chrome-extension/issues/5)
 
 This is a helper Chrome Extension for [app-state](https://www.npmjs.com/package/app-state). You need to install app-state
-v0.2.0+ for it. Currently 0.2.0 is in beta (0.2.0-beta.X) on npm.
+v0.2.0-beta.2 or greater for it. Currently 0.2.0 is in beta (0.2.0-beta.X) on npm.
 
 You can currently inspect your appState and watch it update in real time:
 
