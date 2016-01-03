@@ -11,9 +11,9 @@ v0.2.0-beta.2 or greater for it. Currently 0.2.0 is in beta (0.2.0-beta.X) on np
 
 You can currently inspect and edit your appState and watch it update in real time 
 
-note the 'timestamp' field:
+observing:
 
-![appstate-live-update](https://cloud.githubusercontent.com/assets/1643937/12075681/b1d5caba-b13c-11e5-8c8e-54eb239bcb93.gif)
+![update](https://cloud.githubusercontent.com/assets/1643937/12080267/5b54f4d0-b20a-11e5-99ef-f5581530cab6.gif)
 
 editing:
 
