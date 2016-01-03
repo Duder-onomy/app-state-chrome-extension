@@ -1,5 +1,5 @@
 function inserted() {
-    console.log('inserted 1');
+    console.log('inserted 3');
     window.addEventListener('change-app-state', function (event) {
         console.log('received change event from app');
         sendObjectToDevTools(event.detail);

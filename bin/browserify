@@ -2,4 +2,4 @@
 
 echo '_______________ RUNNING WATCHIFY ____________'
 
-watchify app/panel.js -v -o build/panel.js
+browserify app/panel.js -v -o build/panel.js

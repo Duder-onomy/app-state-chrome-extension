@@ -21,8 +21,8 @@ runAsync('watch', ['bin/scss', 'app/styles']                                    
 runAsync('watch', ['rsync --exclude="app/messaging.js" --exclude="app/panel.js" app/*.js build', 'app'], 'WATCHING INSERTED-SCRIPT');
 runAsync('watch', ['rsync app/*.html build', 'app'], 'WATCHING BACKGROUND');
 
-// Watchify is faster than rerunning browserify because there is extensive caching
-run('bin/watchify'                                      , 'WATCHIFY');
+// Watchify is faster than rerunning browserify, but browserify results seem to show up more robustly in the dev panel
+run('watch bin/browserify app'                                      , 'WATCHIFY');
 
 function run(command, msg) {
     msg && console.log(chalk.green(`__________ ${msg} __________`));

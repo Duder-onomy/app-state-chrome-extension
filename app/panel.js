@@ -20,7 +20,8 @@ messaging.sendObjectToInspectedPage({ action: 'script', content: 'inserted-scrip
 
 function onChange() {
 
-    messaging.sendObjectToInspectedPage(editor.get());
+    //messaging.sendObjectToInspectedPage(editor.get());
+    editor.set({changed:'it now'});
 }
 
 // Pulling appState
