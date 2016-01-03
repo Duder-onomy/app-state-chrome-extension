@@ -1,26 +1,28 @@
 'use strict';
 
+// This is the dev panel that you see
 
 var jsonEditor = require('jsoneditor'),
+    _ = require('lodash'),
     editor = new jsonEditor(document.querySelector('.editor'), {
-        onChange : onChange,
+        onChange : _.debounce(onChange, 1000),
         name : 'AppState',
         modes : ['tree', 'view', 'form', 'code', 'text']
     }),
     messaging = require('./messaging');
 
 editor.set({
-    appState : 'is waiting'
+    appState : 'waiting'
 });
 
 getAppState();
+
 messaging.createChannel(setAppState);
+// Inject a page into the "regular" web page that will function as a communication hub between the regular page and the panel
 messaging.sendObjectToInspectedPage({ action: 'script', content: 'inserted-script.js' });
 
-
 function onChange() {
-
-    messaging.sendObjectToInspectedPage(editor.get());
+    messaging.sendObjectToInspectedPage({ action: 'update-app-state', content: editor.get()});
 }
 
 // Pulling appState

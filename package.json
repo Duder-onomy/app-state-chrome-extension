@@ -1,6 +1,6 @@
 {
-  "name": "chrome-extension",
-  "version": "1.0.0",
+  "name": "app-state-chrome-extension",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "node-sass": "^3.4.2"
   },
   "devDependencies": {
-    "chalk": "^1.1.1"
+    "chalk": "^1.1.1",
+    "lodash": "^3.10.1"
   }
 }

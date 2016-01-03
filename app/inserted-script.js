@@ -1,5 +1,5 @@
 function inserted() {
-    console.log('inserted 3');
+    console.log('inserted 6');
     window.addEventListener('change-app-state', function (event) {
         console.log('received change event from app');
         sendObjectToDevTools(event.detail);
@@ -20,8 +20,7 @@ inserted();
 // Can use:
 // chrome.tabs.*
 // chrome.extension.*
-console.log('adding listener');
 chrome.runtime.onMessage.addListener(function (message, sender) {
-    debugger;
-    executeScriptInPageContext(message);
+    console.log('message received', message);
+    window.dispatchEvent(new window.CustomEvent('change-app-state-from-panel', { detail : message.content } ));
 });
