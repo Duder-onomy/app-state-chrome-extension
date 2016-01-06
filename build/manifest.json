@@ -1,17 +1,20 @@
 {
-  "manifest_version": 2,
-  "name": "app-state-chrome-extension",
-  "description": "app state chrome extension",
-  "version": "1.1",
-  "devtools_page": "devtools.html",
-  "background": {
-    "scripts": [
-      "background.js"
-    ]
-  },
-  "permissions": [
-    "tabs",
-    "http://*/*",
-    "https://*/*"
-  ]
+    "manifest_version": 2,
+    "name": "app-state-chrome-extension",
+    "description": "app state chrome extension",
+    "version": "1.1",
+    "devtools_page": "devtools.html",
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "permissions": [
+        "tabs",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "icons": {
+        "128": "icon128.png"
+    }
 }
