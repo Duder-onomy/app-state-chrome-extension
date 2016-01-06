@@ -1,7 +1,5 @@
 function inserted() {
-    console.log('inserted 6');
     window.addEventListener('change-app-state', function (event) {
-        console.log('received change event from app');
         sendObjectToDevTools({
             action : 'update',
             payload : event.detail
@@ -29,6 +27,5 @@ inserted();
 // chrome.tabs.*
 // chrome.extension.*
 chrome.runtime.onMessage.addListener(function (message, sender) {
-    console.log('message received', message);
     window.dispatchEvent(new window.CustomEvent('change-app-state-from-panel', { detail : message.content } ));
 });
