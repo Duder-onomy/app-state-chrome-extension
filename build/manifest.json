@@ -3,7 +3,7 @@
     "name": "app-state-chrome-extension",
     "short_name" : "App-State",
     "description": "app state chrome extension",
-    "version": "0.0",
+    "version": "1.2",
     "devtools_page": "devtools.html",
     "background": {
         "scripts": [
