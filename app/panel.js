@@ -11,26 +11,30 @@ var jsonEditor = require('jsoneditor'),
     }),
     messaging = require('./messaging');
 
-editor.set({
-    appState : 'waiting'
-});
+start();
 
-getAppState();
+function start(msg) {
+    editor.set({
+        appState: 'waiting'
+    });
 
-messaging.createChannel(setAppState);
-// Inject a page into the "regular" web page that will function as a communication hub between the regular page and the panel
-messaging.sendObjectToInspectedPage({ action: 'script', content: 'inserted-script.js' });
+    getAppState(msg);
+
+    messaging.createChannel(receiveMessage);
+    // Inject a page into the "regular" web page that will function as a communication hub between the regular page and the panel
+    messaging.sendObjectToInspectedPage({action: 'script', content: 'inserted-script.js'});
+}
 
 function onChange() {
     messaging.sendObjectToInspectedPage({ action: 'update-app-state', content: editor.get()});
 }
 
 // Pulling appState
-function getAppState() {
+function getAppState(msg) {
     chrome.devtools.inspectedWindow.eval('window.appState();', function(result, isException) {
         if (isException) {
             result = {
-                appState : 'retrieval error',
+                appState : msg || 'retrieval error',
                 error : result
             };
         }
@@ -39,7 +43,14 @@ function getAppState() {
 }
 
 // appState pushed
-function setAppState(appState) {
-    editor.set(appState);
-    editor.expandAll();
+function receiveMessage(message) {
+    switch (message.action) {
+        case 'update':
+            editor.set(message.payload);
+            editor.expandAll();
+            break;
+        case 'unload':
+            start('reloading');
+            break;
+    }
 }

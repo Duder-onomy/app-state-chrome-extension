@@ -2,8 +2,16 @@ function inserted() {
     console.log('inserted 6');
     window.addEventListener('change-app-state', function (event) {
         console.log('received change event from app');
-        sendObjectToDevTools(event.detail);
+        sendObjectToDevTools({
+            action : 'update',
+            payload : event.detail
+        });
     });
+    window.onunload = function (e) {
+        sendObjectToDevTools({
+            action : 'unload'
+        });
+    };
 
 }
 

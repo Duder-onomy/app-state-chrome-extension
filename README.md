@@ -3,7 +3,7 @@ WIP
 - [x] [Live refresh appState](https://github.com/Duder-onomy/app-state-chrome-extension/issues/2)
 - [x] [Ability to edit appState and have that pushed into browser](https://github.com/Duder-onomy/app-state-chrome-extension/issues/1)
 - [ ] [Ability to freeze appState updates](https://github.com/Duder-onomy/app-state-chrome-extension/issues/3)
-- [ ] [Work nicely with page refreshes](https://github.com/Duder-onomy/app-state-chrome-extension/issues/4)
+- [x] [Work nicely with page refreshes](https://github.com/Duder-onomy/app-state-chrome-extension/issues/4)
 - [ ] [Fix bug where opening and closing dev panel adds more and more listeners without removing them](https://github.com/Duder-onomy/app-state-chrome-extension/issues/5)
 
 This is a helper Chrome Extension for [app-state](https://www.npmjs.com/package/app-state). You need to install app-state
