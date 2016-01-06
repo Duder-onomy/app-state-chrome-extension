@@ -1,4 +1,4 @@
-WIP
+## [Chrome Extension for App-State](https://chrome.google.com/webstore/detail/app-state-chrome-extensio/cphepfcpfpfdonjdcommgmbincoadele)
 
 - [x] [Live refresh appState](https://github.com/Duder-onomy/app-state-chrome-extension/issues/2)
 - [x] [Ability to edit appState and have that pushed into browser](https://github.com/Duder-onomy/app-state-chrome-extension/issues/1)
@@ -22,10 +22,7 @@ editing:
 
 To install it:
 
-1. clone the repo
-2. in your browser go to [chrome://extensions](chrome://extensions)
-3. choose `Load unpacked extension...`
-4. select the `build` directory from the cloned git repo
+1. [Install it](https://chrome.google.com/webstore/detail/app-state-chrome-extensio/cphepfcpfpfdonjdcommgmbincoadele)
 5. initialize your singleton appstate with `devTools : true`:
 
     ```javascript
